@@ -1,6 +1,9 @@
 package config
 
-import "sync"
+import (
+	"fmt"
+	"sync"
+)
 
 //Def define config struct
 type Def struct {
@@ -21,7 +24,12 @@ var (
 
 //Init ...
 func Init() {
+
+}
+
+func init() {
 	initOnce.Do(func() {
+		fmt.Println("init do config")
 		loadConfig()
 	})
 }

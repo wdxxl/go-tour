@@ -7,10 +7,10 @@ func factory(vals []int, multiplier int) []int {
 	var wg sync.WaitGroup
 	for i, v := range vals {
 		wg.Add(1)
-		go func() {
+		go func(i, v int) {
 			defer wg.Done()
 			result[i] = v * multiplier
-		}()
+		}(i, v)
 	}
 	wg.Wait()
 	return result

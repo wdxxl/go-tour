@@ -1,7 +1,9 @@
 package api
 
 import (
-	"github.com/myteksi/go-tour/init_trap/config"
+	"fmt"
+
+	"../config"
 )
 
 var (
@@ -15,10 +17,13 @@ func IsEnabled() bool {
 }
 
 func init() {
+	fmt.Println("init api start")
 	if config.Config.ApiConf == nil {
 		apiEnabled = false
+		fmt.Println("init api end - return")
 		return
 	}
 
 	timeoutInMs = config.Config.ApiConf.TimeoutInMs
+	fmt.Println("init api end")
 }

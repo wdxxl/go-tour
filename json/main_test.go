@@ -24,7 +24,7 @@ func TestMyType(t *testing.T) {
 
 	for _, test := range tests {
 		m := &myType{
-			value: test.value,
+			Value: test.value,
 		}
 		b, _ := json.Marshal(m)
 		assert.Equal(t, test.output, string(b))

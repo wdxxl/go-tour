@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"runtime/pprof"
 	"time"
 )
@@ -17,8 +18,9 @@ func runALotOfTasks() int {
 		select {
 		case <-r:
 		case <-time.After(5 * time.Millisecond):
+			fmt.Println(pprof.Lookup("goroutine").Count())
+			return pprof.Lookup("goroutine").Count()
 		}
 	}
-
 	return pprof.Lookup("goroutine").Count()
 }

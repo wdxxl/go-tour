@@ -1,6 +1,8 @@
 package main
 
-import "sync"
+import (
+	"sync"
+)
 
 /*
 I know it looks weird to have a mock function and we replace it at runtime then call it to do real job, I did this simply because I can.
@@ -33,8 +35,9 @@ func compareOddAndEven(values []int) bool {
 				}
 				mock()
 			}(val)
+			wg.Wait()
 		}
 	}
-	wg.Wait()
+	// wg.Wait()
 	return evenCount == oddCount
 }

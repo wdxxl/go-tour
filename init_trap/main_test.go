@@ -3,8 +3,8 @@ package init
 import (
 	"testing"
 
-	"github.com/myteksi/go-tour/init_trap/api"
-	"github.com/myteksi/go-tour/init_trap/config"
+	"./api"
+	"./config"
 	"github.com/stretchr/testify/assert"
 )
 
